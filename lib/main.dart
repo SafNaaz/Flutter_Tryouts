@@ -23,7 +23,28 @@ class _QuoteListState extends State<QuoteList> {
         text: 'The truth is rarely pure and never simple'),
   ];
 
-  Widget quoteTemplate(quote) {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[200],
+      appBar: AppBar(
+        title: Text('Awesome Quotes'),
+        centerTitle: true,
+        backgroundColor: Colors.redAccent,
+      ),
+      body: Column(
+        children: quotes.map((quote) => QuoteCard(quote: quote)).toList(),
+      ),
+    );
+  }
+}
+
+class QuoteCard extends StatelessWidget {
+  final Quote quote;
+  QuoteCard({this.quote});
+
+  @override
+  Widget build(BuildContext context) {
     return Card(
       margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
       child: Padding(
@@ -42,21 +63,6 @@ class _QuoteListState extends State<QuoteList> {
             )
           ],
         ),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[200],
-      appBar: AppBar(
-        title: Text('Awesome Quotes'),
-        centerTitle: true,
-        backgroundColor: Colors.redAccent,
-      ),
-      body: Column(
-        children: quotes.map((quote) => quoteTemplate(quote)).toList(),
       ),
     );
   }
