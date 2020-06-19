@@ -22,7 +22,14 @@ class QuoteCard extends StatelessWidget {
             Text(
               quote.author,
               style: TextStyle(fontSize: 14.0, color: Colors.grey[800]),
-            )
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            FlatButton.icon(
+                onPressed: () {},
+                label: Text('Delete Quote'),
+                icon: Icon(Icons.delete))
           ],
         ),
       ),
