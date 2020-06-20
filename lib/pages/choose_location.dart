@@ -23,6 +23,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
   void initState() {
     super.initState();
     getData();
+    print('hey there');
   }
 
   @override
