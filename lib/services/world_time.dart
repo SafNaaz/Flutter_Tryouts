@@ -19,14 +19,14 @@ class WorldTime {
 
       // get properties from data
       String dateTime = data['datetime'];
-      String offsetHours = data['utc_offset'].substring(1, 3);
+      String offsetHours = data['utc_offset'].substring(0, 3);
       String offsetMinutes = data['utc_offset'].substring(4, 6);
       DateTime now = DateTime.parse(dateTime);
       now = now.add(Duration(
           hours: int.parse(offsetHours), minutes: int.parse(offsetMinutes)));
 
       //set time property
-      isDayTime = now.hour > 6 && now.hour < 20 ? true : false;
+      isDayTime = now.hour > 6 && now.hour < 19 ? true : false;
       time = DateFormat.jm().format(now);
     } catch (e) {
       print(e);
