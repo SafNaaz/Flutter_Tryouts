@@ -37,6 +37,13 @@ class _HomeState extends State<Home> {
                 style: TextStyle(fontSize: 28, letterSpacing: 2),
               )
             ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            data['time'],
+            style: TextStyle(fontSize: 66),
           )
         ],
       ),
