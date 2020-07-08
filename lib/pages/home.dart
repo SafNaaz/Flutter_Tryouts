@@ -14,46 +14,48 @@ class _HomeState extends State<Home> {
 
     // set background
     String bgImage = data['isDayTime'] ? 'day.png' : 'night.png';
+    Color bgColor = data['isDayTime'] ? Colors.blue : Colors.indigo[700];
 
     return Scaffold(
+        backgroundColor: bgColor,
         body: SafeArea(
             child: Container(
-      decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/$bgImage'), fit: BoxFit.cover)),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(0, 120, 0, 0),
-        child: Column(
-          children: <Widget>[
-            FlatButton.icon(
-              icon: Icon(Icons.edit_location),
-              label: Text('Edit Location'),
-              onPressed: () {
-                Navigator.pushNamed(context, '/location');
-              },
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/$bgImage'), fit: BoxFit.cover)),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 120, 0, 0),
+            child: Column(
               children: <Widget>[
+                FlatButton.icon(
+                  icon: Icon(Icons.edit_location),
+                  label: Text('Edit Location'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/location');
+                  },
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      data['location'],
+                      style: TextStyle(fontSize: 28, letterSpacing: 2),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
                 Text(
-                  data['location'],
-                  style: TextStyle(fontSize: 28, letterSpacing: 2),
+                  data['time'],
+                  style: TextStyle(fontSize: 66),
                 )
               ],
             ),
-            SizedBox(
-              height: 20,
-            ),
-            Text(
-              data['time'],
-              style: TextStyle(fontSize: 66),
-            )
-          ],
-        ),
-      ),
-    )));
+          ),
+        )));
   }
 }
