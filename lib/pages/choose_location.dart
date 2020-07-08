@@ -8,11 +8,11 @@ class ChooseLocation extends StatefulWidget {
 
 class _ChooseLocationState extends State<ChooseLocation> {
   List<WorldTime> locations = [
+    WorldTime(url: 'Asia/Kolkata', location: 'India', flag: 'India.png'),
     WorldTime(url: 'Europe/London', location: 'London', flag: 'uk.png'),
     WorldTime(url: 'Europe/Berlin', location: 'Athens', flag: 'greece.png'),
     WorldTime(url: 'Africa/Cairo', location: 'Cairo', flag: 'egypt.png'),
     WorldTime(url: 'Africa/Nairobi', location: 'Nairobi', flag: 'kenya.png'),
-    WorldTime(url: 'Asia/Kolkata', location: 'India', flag: 'India.png'),
     WorldTime(url: 'America/New_York', location: 'New York', flag: 'usa.png'),
     WorldTime(url: 'Asia/Seoul', location: 'Seoul', flag: 'south_korea.png'),
     WorldTime(url: 'Asia/Jakarta', location: 'Jakarta', flag: 'indonesia.png'),
@@ -31,13 +31,16 @@ class _ChooseLocationState extends State<ChooseLocation> {
       ),
       body: ListView.builder(
           itemCount: locations.length,
-          itemBuilder: (context, index) => Card(
-                child: ListTile(
-                  onTap: () => {},
-                  title: Text(locations[index].location),
-                  leading: CircleAvatar(
-                    backgroundImage:
-                        AssetImage('assets/${locations[index].flag}'),
+          itemBuilder: (context, index) => Padding(
+                padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 4),
+                child: Card(
+                  child: ListTile(
+                    onTap: () => {print(locations[index].location)},
+                    title: Text(locations[index].location),
+                    leading: CircleAvatar(
+                      backgroundImage:
+                          AssetImage('assets/${locations[index].flag}'),
+                    ),
                   ),
                 ),
               )),
